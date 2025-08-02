@@ -1,0 +1,46 @@
+#------------------------------------------------------------------------------
+#get data from Social Security Administration
+#------------------------------------------------------------------------------
+#import undetected_geckodriver as sewd
+from selenium import webdriver as sewd
+
+import sys
+import os
+
+from . import auto_bank_aux
+from . import selenium_aux
+
+#------------------------------------------------------------------------------
+#use selenium to login
+def page_login_se(driver,USR,PWD):
+
+    #HAD A TIME OUT
+    
+    e_usr   = selenium_aux.get_element_by_id(driver,"presence","user_email") #email
+    e_pwd   = selenium_aux.get_element_by_id(driver,"presence","password-toggle-input-b6072def")  #Password
+    e_login = selenium_aux.get_element_by_name(driver,"clickable","button")  #Sign In
+    
+    e_usr.send_keys(USR)
+    e_pwd.send_keys(PWD)
+    e_login.click()
+    return driver
+#enddef
+
+#------------------------------------------------------------------------------
+def actions(USR,PWD,site):
+    driver = auto_bank_aux.enter_bank(sewd,site)
+
+    print("TODO - not working yet...")
+    #driver = page_login_se(driver,USR,PWD)
+
+    #NO MORE ACTIONS DEFINED - YET
+    
+    auto_bank_aux.exit_bank(driver)
+    
+    return
+#enddef
+
+#==============================================================================
+if __name__ == "__main__":
+    site = "https://secure.ssa.gov/acu/FIS/ap?idp=logingov&app=rir&target=/myssa/myhub"
+    actions("abc","123",site)
