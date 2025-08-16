@@ -1,5 +1,5 @@
 #------------------------------------------------------------------------------
-#get data from Paypal
+#get data from Venmo
 #------------------------------------------------------------------------------
 import undetected_geckodriver as sewd
 #from selenium import webdriver as sewd
@@ -51,5 +51,5 @@ def actions(USR,PWD,site):
 
 #------------------------------------------------------------------------------
 if __name__ == "__main__":
-    site = "https://paypal.com"
+    site = "https://venmo.com"
     actions("abc","123",site)
