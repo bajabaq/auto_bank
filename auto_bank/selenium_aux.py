@@ -41,7 +41,7 @@ def get_element_by_xpath(driver,ec_type,xpath):
     if ec_type == 'clickable':
         WebDriverWait(driver,wtime).until(EC.element_to_be_clickable((By.XPATH,xpath)))
     else:
-        print("error in selenium_aux.py get_element_by_path")
+        print("error in selenium_aux.py get_element_by_xpath")
     #endif
     return element
 #enddef

@@ -23,9 +23,23 @@ def page_login_se(driver,USR,PWD):
     
     e_pwd = selenium_aux.get_element_by_id(driver,"presence","password")      #Password
     e_pwd.send_keys(PWD)
-    #can probably use XPATH to find button[contains(.,"Sign In")
-    e_pwd.send_keys(Keys.TAB+Keys.TAB+Keys.TAB+Keys.ENTER)
+    e_pwd.send_keys(Keys.TAB+Keys.TAB+Keys.TAB+Keys.TAB+Keys.ENTER)
 
+    """
+    #THIS DOES NOT WORK
+    try:
+        ec_type = 'clickable'
+        xpath   = "//jha-button[contains(.,'Sign in')"
+        button_element = selenium_aux.get_element_by_xpath(driver,ec_type,xpath)
+        button_element.click()
+        print("yay")
+    except Exception as e:
+        print(f"Error locating or clicking the button: {e}")
+        print("try it this way")
+        e_pwd.send_keys(Keys.TAB+Keys.TAB+Keys.TAB+Keys.TAB+Keys.ENTER)
+    #endtry
+    """
+    
     return driver
 #enddef
 
